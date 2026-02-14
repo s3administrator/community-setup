@@ -1,0 +1,28 @@
+{
+  "name": "@s3administrator/community-setup",
+  "version": "1.0.0",
+  "description": "Community edition stub generator for S3 Administrator",
+  "type": "module",
+  "bin": {
+    "s3admin-community-setup": "bin/s3admin-community-setup.mjs"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "tsx": "^4.19.2"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s3administrator/s3administrator.git",
+    "directory": "packages/community-setup"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  }
+}
