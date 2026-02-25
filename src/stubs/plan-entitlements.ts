@@ -9,6 +9,7 @@ export interface PlanEntitlements {
   source: PlanSource
   bucketLimit: number
   fileLimit: number
+  storageLimitBytes: number
   thumbnailCache: boolean
   transferTasks: boolean
   recursiveDelete: boolean
@@ -25,6 +26,7 @@ const COMMUNITY_ENTITLEMENTS: PlanEntitlements = {
   source: "default",
   bucketLimit: 1000,
   fileLimit: Number.POSITIVE_INFINITY,
+  storageLimitBytes: Number.POSITIVE_INFINITY,
   thumbnailCache: true,
   transferTasks: true,
   recursiveDelete: true,
