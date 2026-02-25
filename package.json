@@ -1,6 +1,6 @@
 {
   "name": "@s3administrator/community-setup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Community edition stub generator for S3 Administrator",
   "type": "module",
   "bin": {
