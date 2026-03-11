@@ -4,6 +4,7 @@ import { ANALYTICS_CONSENT_CONTENT } from "./stubs/analytics-consent.ts"
 import { SEO_CONTENT } from "./stubs/seo.ts"
 import { SEO_LANDING_PAGES_CONTENT } from "./stubs/seo-landing-pages.ts"
 import { SERVER_METRICS_CONTENT } from "./stubs/server-metrics.ts"
+import { ORG_SWITCHER_CONTENT } from "./stubs/org-switcher.ts"
 
 export type StubEntry =
   | { type: "lib-critical"; path: string; content: string }
@@ -39,6 +40,10 @@ export const COMMUNITY_STUBS: StubEntry[] = [
   { type: "lib-empty", path: "src/lib/tiers.ts" },
   { type: "lib-empty", path: "src/lib/subscription-status.ts" },
   { type: "lib-critical", path: "src/lib/plan-entitlements.ts", content: PLAN_ENTITLEMENTS_CONTENT },
+  { type: "lib-empty", path: "src/lib/pricing-formula.ts" },
+  { type: "lib-empty", path: "src/lib/stripe-dynamic-price.ts" },
+  { type: "route", path: "src/app/api/stripe/dynamic-checkout/route.ts", methods: ["POST"] },
+  { type: "lib-empty", path: "src/components/pricing/pricing-configurator.tsx" },
 
   // ─── @s3administrator/admin ───
   { type: "route", path: "src/app/api/admin/stats/route.ts", methods: ["GET"] },
@@ -87,4 +92,32 @@ export const COMMUNITY_STUBS: StubEntry[] = [
   { type: "lib-critical", path: "src/lib/analytics-consent.ts", content: ANALYTICS_CONSENT_CONTENT },
   { type: "lib-critical", path: "src/lib/seo.ts", content: SEO_CONTENT },
   { type: "lib-critical", path: "src/lib/seo-landing-pages.ts", content: SEO_LANDING_PAGES_CONTENT },
+  { type: "page", path: "src/app/(marketing)/open-source/page.tsx" },
+  { type: "page", path: "src/app/(marketing)/security/page.tsx" },
+  { type: "page", path: "src/app/(marketing)/self-hosted/page.tsx" },
+
+  // ─── @s3administrator/teams ───
+  { type: "route", path: "src/app/api/teams/route.ts", methods: ["GET", "POST"] },
+  { type: "route", path: "src/app/api/teams/[orgId]/route.ts", methods: ["GET", "PATCH", "DELETE"] },
+  { type: "route", path: "src/app/api/teams/switch/route.ts", methods: ["POST"] },
+  { type: "route", path: "src/app/api/teams/accept-invite/route.ts", methods: ["POST"] },
+  { type: "route", path: "src/app/api/teams/[orgId]/members/route.ts", methods: ["GET"] },
+  { type: "route", path: "src/app/api/teams/[orgId]/members/[memberId]/route.ts", methods: ["PATCH", "DELETE"] },
+  { type: "route", path: "src/app/api/teams/[orgId]/invitations/route.ts", methods: ["GET", "POST"] },
+  { type: "route", path: "src/app/api/teams/[orgId]/invitations/[id]/route.ts", methods: ["DELETE"] },
+  { type: "route", path: "src/app/api/teams/[orgId]/credentials/route.ts", methods: ["GET", "POST"] },
+  { type: "route", path: "src/app/api/teams/[orgId]/credentials/[id]/route.ts", methods: ["PATCH", "DELETE"] },
+  { type: "route", path: "src/app/api/teams/[orgId]/billing/route.ts", methods: ["GET"] },
+  { type: "route", path: "src/app/api/teams/[orgId]/billing/checkout/route.ts", methods: ["POST"] },
+  { type: "route", path: "src/app/api/teams/[orgId]/billing/portal/route.ts", methods: ["POST"] },
+  { type: "route", path: "src/app/api/teams/[orgId]/billing/seats/route.ts", methods: ["POST"] },
+  { type: "page", path: "src/app/(dashboard)/teams/new/page.tsx" },
+  { type: "page", path: "src/app/(dashboard)/teams/[slug]/settings/page.tsx" },
+  { type: "page", path: "src/app/(dashboard)/teams/[slug]/members/page.tsx" },
+  { type: "page", path: "src/app/(dashboard)/teams/[slug]/billing/page.tsx" },
+  { type: "page", path: "src/app/invite/[token]/page.tsx" },
+  { type: "lib-critical", path: "src/lib/org-switcher.tsx", content: ORG_SWITCHER_CONTENT },
+  { type: "lib-empty", path: "src/lib/org-context.ts" },
+  { type: "lib-empty", path: "src/lib/permissions.ts" },
+  { type: "lib-empty", path: "src/lib/org-audit.ts" },
 ]
